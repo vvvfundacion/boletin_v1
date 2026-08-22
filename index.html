@@ -541,8 +541,9 @@
     details.exec-summary[open] { padding: 24px 20px 30px; }
     .exec-summary-title { font-size: 1.6rem; }
 
-    .toc-cta { flex-direction: column; align-items: flex-start; }
+    .toc-cta { flex-direction: column; align-items: stretch; padding: 24px 22px; }
     .toc-cta-btn { width: 100%; justify-content: center; }
+    .toc-cta-qr { align-self: center; }
     
     .verbatim-card { padding: 20px 24px; }
     .verbatim-card p.quote { font-size: 19px; }
@@ -613,12 +614,25 @@
   .toc-list a { font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--tinta); text-decoration: none; border-bottom: 1px solid var(--linea-fuerte); padding-bottom: 2px; transition: color .2s ease, border-color .2s ease; }
   .toc-list a:hover { color: var(--azul); border-color: var(--amarillo); }
   .toc-list li + li::before { content: "·"; color: var(--linea-fuerte); margin-right: 10px; }
-  .toc-cta { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--linea); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; }
-  .toc-cta-text { font-family: var(--sans); font-size: 14px; line-height: 1.55; color: var(--tinta); margin: 0; max-width: 46ch; flex: 1 1 320px; }
-  .toc-cta-btn { font-family: var(--sans); font-weight: 700; font-size: 13.5px; letter-spacing: .02em; color: #fff; background: var(--azul); padding: 13px 24px; border-radius: 30px; text-decoration: none; white-space: nowrap; display: inline-flex; align-items: center; gap: 9px; flex-shrink: 0; transition: background .2s ease, transform .2s ease; }
+  .toc-cta {
+    margin-top: 26px; background: var(--beige); border: 1px solid rgba(34,53,129,.14);
+    border-radius: 14px; padding: 30px 34px;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 26px;
+  }
+  .toc-cta-main { flex: 1 1 320px; }
+  .toc-cta-title {
+    font-family: var(--display); font-weight: 700; font-size: clamp(1.2rem, 2.6vw, 1.55rem);
+    color: var(--azul); line-height: 1.28; margin: 0 0 10px;
+    text-decoration: underline; text-decoration-color: var(--amarillo); text-decoration-thickness: 3px; text-underline-offset: 5px;
+  }
+  .toc-cta-text { font-family: var(--sans); font-size: 14.5px; line-height: 1.6; color: var(--tinta); margin: 0 0 20px; max-width: 46ch; }
+  .toc-cta-btn { font-family: var(--sans); font-weight: 700; font-size: 14.5px; letter-spacing: .02em; color: #fff; background: var(--azul); padding: 14px 26px; border-radius: 30px; text-decoration: none; white-space: nowrap; display: inline-flex; align-items: center; gap: 9px; flex-shrink: 0; transition: background .2s ease, transform .2s ease; }
   .toc-cta-btn:hover { background: var(--azul-2); transform: translateY(-1px); }
   .toc-cta-btn .arrow { display: inline-block; transition: transform .2s ease; }
   .toc-cta-btn:hover .arrow { transform: translateX(3px); }
+  .toc-cta-qr { display: flex; flex-direction: column; align-items: center; gap: 8px; flex-shrink: 0; }
+  .toc-cta-qr img { width: 140px; height: 140px; display: block; background: #fff; border: 1px solid var(--linea-fuerte); border-radius: 8px; padding: 6px; }
+  .toc-cta-qr-label { font-family: var(--sans); font-weight: 600; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--gris); text-align: center; }
 
   /* ---------- divisores de parte ---------- */
   .part { max-width: var(--wide); margin: 58px auto 0; padding: 0 28px; }
@@ -797,13 +811,13 @@
   <div class="hero-split-text">
     <div class="hst-top">
       <p class="kicker">Boletín informativo - Encuesta post terremoto 2026</p>
-      <p class="kicker-sub">Unidad de Analítica de la Fundación WWB Colombia</p>
+      <p class="kicker-sub">Fundación WWB Colombia</p>
       <hr class="kicker-rule">
     </div>
     <div class="hst-main">
       <h1 class="headline">El sismo sobre un margen estrecho: La casa que es taller, tienda y refugio</h1>
       <p class="subhead">Cuando la vivienda afectada es también el negocio detenido</p>
-      <p class="dek">Afectaciones y necesidades de las mujeres emprendedoras de la Fundación WWB Colombia tras el terremoto del 10 de agosto de 2026 </p>
+      <p class="dek">Afectaciones y necesidades de la población emprendedora beneficiaria de la Fundación WWB Colombia tras el terremoto del 10 de agosto de 2026 </p>
     </div>
     <div class="meta">
       <img class="meta-logo" src="assets/WWB_Logotipo_Duotono.png" alt="Fundación WWB Colombia">
@@ -844,26 +858,30 @@
     </summary>
     
     <div class="exec-summary-content">
-      <p>El sismo de magnitud 7,4 del 10 de agosto de 2026 en el suroccidente colombiano afectó a <strong>282.709 personas</strong> (UNGRD, corte 20 de agosto), con 319 fallecidos, 4.506 heridos y 260 desaparecidos, y dañó gravemente el tejido microempresarial de Valle del Cauca, Risaralda, Chocó y Cauca — zona que coincide con la base de beneficiarias de la Fundación. Del Censo Único de Emergencia: 85,8% de las empresas reportó afectación, 49,6% en nivel grave/crítico, y 48,4% no puede operar.</p>
+      <p>El sismo de magnitud 7,4 del 10 de agosto de 2026 en el suroccidente colombiano afectó a <strong>282.709 personas</strong> (UNGRD, corte 20 de agosto), con 319 fallecidos, 4.506 heridos y 260 desaparecidos, y dañó gravemente el tejido microempresarial de Valle del Cauca, Risaralda, Chocó y Cauca, zona que coincide con la base de beneficiarias de la Fundación. A nivel de afectación de micronegocios en estos territorios, Confecámaras realizó el Censo Único de Emergencia y encontró que el 85,8% de las empresas reportó afectación, 49,6% en nivel grave/crítico, y 48,4% no puede operar.</p>
       
-      <p>Para orientar su respuesta, la Fundación encuestó a beneficiarias de sus programas (Yarú, Reactívate, Voy de la Mano, 60D, Emprende, Aspira y Red de Egresadas) sobre salud, vivienda, servicios básicos, seguridad alimentaria, alojamiento, negocio y necesidades de recuperación. Se obtuvieron <strong>3.906 respuestas</strong> no probabilísticas, con 76,1% en Valle del Cauca (Cali 37,1%, Buenaventura 9,4%, Palmira 5,6%); los resultados deben leerse como radiografía indicativa, no censo exhaustivo.</p>
+      <p>Para determinar de una manera más precisa las afectaciones,y orientar de manera más efectiva sus acciones de respuesta a la emergencia, la Fundación WWB Colombia encuestó a 3.906 beneficiarias de sus iniciativas de emprendimiento sobre salud, vivienda, servicios básicos, seguridad alimentaria, alojamiento, negocio y necesidades de recuperación, con 76,1% de presencia en el Valle del Cauca (Cali 37,1%, Buenaventura 9,4%, Palmira 5,6%).</p>
 
-      <p><strong>El hallazgo principal:</strong> solo el 11,0% de los locales quedó inutilizable, pero el 76,2% de los negocios no operaba con normalidad. La parálisis no vino de la destrucción de activos sino de la contracción de la demanda, sobre unidades de subsistencia que en su mayoría funcionan dentro de la vivienda.</p>
+        <p>Conocer el estado actual de los negocios constituye un reto urgente ya que por experiencia propia y con base en información disponible, hemos observado que en más del 70% de los casos el emprendimiento constituye la base fundamental del ingreso de los hogares, por ende, la restauración de la capacidad productiva basada en el emprendimiento, redunda en el bienestar de las familias. Condición particularmente necesaria en un escenario de respuesta ante la emergencia sufrida.</p>
+
+        <p>Sin embargo, conviene aclarar que esta encuesta no constituye un ejercicio de alcance estadístico, sino que corresponde a registros administrativos recolectados por la Fundación con su población beneficiaria, constituida en un 80% por mujeres. Estos resultados se comparten como orientación y base para enriquecer el análisis y no pretenden ser una conclusión extrapolable per sé, pero muestran indicios que consideramos importantes a la hora de determinar cursos de acción.</p>
+
+              <p><strong>El hallazgo principal:</strong> El 76,2% de los negocios no está operando con normalidad. La parálisis no vino de la destrucción de activos sino de la contracción de la demanda, sobre unidades de subsistencia que en su mayoría funcionan dentro de la vivienda.</p>
 
       <h3>Impacto en los negocios</h3>
       <ul class="summary">
         <li><b>48,7%</b> reporta disminución de ventas; <b>38,0%</b> bajo flujo de clientes; <b>20,9%</b> pérdida de inventarios/insumos.</li>
-        <li><b>71,6%</b> de las unidades operaba dentro de la vivienda — el daño habitacional golpea directamente el negocio (mujeres lideran este patrón).</li>
-        <li><b>27,7%</b> señala que la afectación limita en alto grado su capacidad de cubrir gastos básicos del hogar.</li>
+        <li><b>71,6%</b> de las unidades operaba dentro de la vivienda, es así como, el daño habitacional golpea directamente el negocio (mujeres lideran este patrón).</li>
+        <li><b>60,4%</b> señala que la afectación limita en alto o moderado su capacidad de cubrir gastos básicos del hogar.</li>
       </ul>
 
       <h3>Enfoques de recuperación</h3>
       <ul class="summary">
-        <li><b>Enfoque sistémico:</b> reactivar mercados y cadenas locales, no solo negocios individuales.</li>
-        <li><b>Enfoque diferencial e interseccional:</b> priorizar mujeres, jefas de hogar y grupos con mayores barreras previas.</li>
-        <li><b>Recuperación de capacidades:</b> capital + asistencia técnica y comercial (no solo dinero).</li>
-        <li><b>Conexiones de mercado:</b> estrategia "Conectar para crecer" (ruedas de negocio, showrooms, redes).</li>
-        <li><b>Enfoque comunitario y territorial:</b> brigadas móviles, formalización itinerante, redes locales.</li>
+        <li><b>Enfoque sistémico:</b> Reactivar mercados y cadenas locales, no solo negocios individuales.</li>
+        <li><b>Enfoque diferencial e interseccional:</b> Priorizar mujeres, jefas de hogar y grupos con mayores barreras previas.</li>
+        <li><b>Recuperación de capacidades:</b>Capital + asistencia técnica y comercial (no solo dinero).</li>
+        <li><b>Conexiones de mercado:</b>Estrategia "Conectar para crecer" (ruedas de negocio, showrooms, redes).</li>
+        <li><b>Enfoque comunitario y territorial:</b>Brigadas móviles, formalización itinerante, redes locales.</li>
       </ul>
     </div>
   </details>
@@ -905,8 +923,15 @@
     </div>
 
     <div class="toc-cta">
-      <p class="toc-cta-text">¿Quieres conocer qué están respondiendo las personas? Explora y analiza nuestro tablero de control, con información que se actualiza en tiempo real y te permite profundizar en los resultados a nivel departamental y municipal.</p>
-      <a class="toc-cta-btn" href="https://zfrmz.com/K86TEAZkXztIqmMEFJMH" target="_blank" rel="noopener">Explorar el tablero <span class="arrow">→</span></a>
+      <div class="toc-cta-main">
+        <p class="toc-cta-title">¿Quieres conocer qué están respondiendo las personas?</p>
+        <p class="toc-cta-text">Explora y analiza nuestro tablero de control, con información que se actualiza en tiempo real y te permite profundizar en los resultados a nivel departamental y municipal.</p>
+        <a class="toc-cta-btn" href="https://zfrmz.com/K86TEAZkXztIqmMEFJMH" target="_blank" rel="noopener">Explorar el tablero <span class="arrow">→</span></a>
+      </div>
+      <div class="toc-cta-qr">
+        <img src="assets/qr.png" alt="Código QR para acceder al tablero de control">
+        <span class="toc-cta-qr-label">Escanéalo con tu celular</span>
+      </div>
     </div>
   </div>
 </div>
@@ -926,7 +951,7 @@
     <p class="lede-first">La emergencia desencadenada el 10 de agosto de 2026 en el suroccidente colombiano, tras un sismo de magnitud 7.4, constituye una emergencia de gran magnitud para la región. Los daños en infraestructura y las interrupciones operativas han provocado desplazamientos temporales, pérdidas humanas y materiales sin precedentes y serias barreras para el comercio local, agudizando la vulnerabilidad económica y deteriorando los medios de vida.</p>
     <p>Los daños se concentraron en mayor medida en Cali, Pereira, Manizales, Quibdó, Buenaventura y otros municipios del Valle del Cauca, Risaralda y Chocó, área que coincide con la zona de operación histórica de la Fundación WWB Colombia. Según el balance oficial de la UNGRD con corte al 20 de agosto de 2026, la cifra de personas afectadas por el sismo asciende a 282.709 correspondientes a 153.336 familias. En cuanto al impacto humano, el reporte registra 319 personas fallecidas, 4.506 heridas y 260 desaparecidas. Además, se reportan 31.461 viviendas destruidas, 163.492 averiadas y 302 edificios colapsados.</p>
     <p>A esas afectaciones se suma el golpe sobre el tejido productivo de la región, de base predominantemente microempresarial. Las regiones golpeadas concentraban, antes del evento, 269.786 empresas y 1.396.020 empleos formales (15% del empleo formal nacional), y el 93 % de esas empresas (250.628) son microempresas, el segmento con menor capacidad para absorber pérdidas, sostener el empleo y reactivar operaciones.</p>
-  <p>Los primeros resultados del Censo Único de Emergencia, levantado por Confecámaras a partir de una solución de la Cámara de Comercio de Cali, confirman la gravedad: el 85,8% de las empresas encuestadas reportó alguna afectación, el 49,6% de nivel grave o crítico y el 48,4% no puede operar actualmente. Según Forbes (2026), en el plano macroeconómico, una primera estimación de BTG Pactual calcula que la reconstrucción podría superar los 20 billones de pesos (cerca de 1 p.p. del PIB) en un contexto de restricción fiscal que condiciona el alcance y la velocidad de la respuesta pública.
+  <p>Los primeros resultados del Censo Único de Emergencia, levantado por Confecámaras a partir de una solución de la Cámara de Comercio de Cali, confirman la gravedad. El 85,8% de las empresas encuestadas reportó alguna afectación, el 49,6% de nivel grave o crítico y el 48,4% no puede operar actualmente. Según Forbes (2026), en el plano macroeconómico, una primera estimación de BTG Pactual calcula que la reconstrucción podría superar los 20 billones de pesos (cerca de 1 p.p. del PIB) en un contexto de restricción fiscal que condiciona el alcance y la velocidad de la respuesta pública.
 </p>
   <p>La magnitud de la emergencia ha desbordado la capacidad de respuesta inmediata de múltiples instituciones y comunidades, generando impactos particularmente severos sobre el tejido microempresarial de la región. Para orientar su respuesta, la Fundación WWB Colombia aplicó una encuesta de percepción de afectaciones a la que respondieron 3.906 beneficiarias de los programas Yarú (Virtual, Semipresencial y Rural), Reactívate, Voy de la Mano, 60D y Red de Egresadas, indagando por su salud física y emocional, el estado de su vivienda, el acceso a servicios básicos, la seguridad alimentaria, las condiciones de alojamiento, la situación de su negocio y sus principales necesidades de recuperación.
 </p>

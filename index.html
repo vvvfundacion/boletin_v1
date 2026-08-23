@@ -452,6 +452,14 @@
   .summary li b { color: var(--azul); font-weight: 700; }
   .closing { max-width: var(--col); margin: 6px auto 0; font-family: var(--display); font-weight: 500; font-style: italic; font-size: clamp(1.4rem, 3vw, 1.85rem); line-height: 1.36; color: var(--azul); letter-spacing: -.01em; }
 
+  /* ---------- panel de cierre destacado ---------- */
+  .closing-panel { max-width: var(--col); margin: 30px auto 0; background: var(--azul-2); border-radius: 18px; padding: 48px 52px; text-align: center; position: relative; overflow: hidden; }
+  .closing-panel::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: var(--amarillo); }
+  .closing-panel .cp-tick { width: 40px; height: 4px; background: var(--amarillo); margin: 0 auto 26px; }
+  .closing-panel p { font-family: var(--display); font-style: italic; line-height: 1.4; margin: 0; letter-spacing: -.01em; }
+  .closing-panel .cp-line1 { font-size: clamp(1.15rem, 2.2vw, 1.4rem); font-weight: 500; color: var(--lavanda); margin-bottom: 16px; }
+  .closing-panel .cp-line2 { font-size: clamp(1.5rem, 3.2vw, 2.05rem); font-weight: 600; color: #fff; }
+
   /* ---------- pie ---------- */
   footer { background: var(--azul); color: rgba(250,250,250,.86); margin-top: 80px; padding: 52px 0 46px; }
   footer .wrap { display: flex; flex-wrap: wrap; gap: 40px; justify-content: space-between; align-items: flex-start; }
@@ -459,6 +467,22 @@
   footer .src b { color: var(--hueso); font-weight: 600; }
   footer a { color: var(--amarillo); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
+
+  /* ---------- bibliografía (botón + modal) ---------- */
+  .biblio-btn { font-family: var(--sans); font-weight: 700; font-size: 14px; letter-spacing: .02em; color: #fff; background: var(--azul); padding: 13px 24px; border: 0; border-radius: 30px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; margin-top: 22px; transition: background .2s ease, transform .2s ease; }
+  .biblio-btn:hover { background: var(--azul-2); transform: translateY(-1px); }
+  .biblio-modal { border: 0; border-radius: 14px; padding: 0; max-width: 640px; width: 92vw; max-height: 82vh; box-shadow: 0 25px 60px rgba(0,0,0,.28); }
+  .biblio-modal::backdrop { background: rgba(29,29,27,.55); backdrop-filter: blur(1px); }
+  .biblio-modal-inner { padding: 32px 34px 34px; overflow-y: auto; max-height: 82vh; }
+  .biblio-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 4px; }
+  .biblio-title { font-family: var(--display); font-weight: 600; font-size: 1.4rem; color: var(--azul); margin: 0; letter-spacing: -.01em; }
+  .biblio-tick { width: 30px; height: 3px; background: var(--amarillo); margin: 10px 0 20px; }
+  .biblio-close { flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--linea-fuerte); background: var(--hueso); color: var(--tinta); font-size: 16px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background .2s ease; }
+  .biblio-close:hover { background: var(--beige); }
+  .biblio-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+  .biblio-list li { font-family: var(--sans); font-size: 13.5px; line-height: 1.55; color: var(--tinta); padding-bottom: 16px; border-bottom: 1px solid var(--linea-fuerte); }
+  .biblio-list li:last-child { border-bottom: 0; padding-bottom: 0; }
+  .biblio-list a { color: var(--azul); word-break: break-word; }
 
   /* ---------- reveal animaciones ---------- */
   .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
@@ -469,6 +493,7 @@
   @media (max-width: 820px) {
     body { font-size: 18px; }
     .col, .food-list, .fig-split.fig-split-stack { padding-left: 22px; padding-right: 22px; }
+    .closing-panel { margin-left: 22px; margin-right: 22px; padding: 36px 26px; }
     .hero-split { grid-template-columns: 1fr; padding: 48px 0 8px; gap: 28px; }
     .hero-split-text { text-align: center; padding-left: 28px; padding-right: 28px; }
     .hero-split-text .kicker-rule { margin: 20px auto 30px; }
@@ -827,6 +852,15 @@
         <li><b>60,4%</b> señala que la afectación limita en un nivel alto o moderado su capacidad de cubrir gastos básicos del hogar.</li>
       </ul>
 
+      <h3>Principales necesidades expresadas</h3>
+      <ul class="summary">
+        <li><b>34,9%</b> capital para recuperar el negocio.</li>
+        <li><b>22,5%</b> acompañamiento psicosocial.</li>
+        <li><b>21,7%</b> reparación/adecuación de vivienda.</li>
+        <li><b>15,1%</b> ayuda humanitaria.</li>
+        <li><b>15,0%</b> información y orientación.</li>
+      </ul>
+
       <h3>Proponemos cinco ejes para la recuperación</h3>
       <ul class="summary">
         <li><b>Enfoque sistémico:</b> Reactivar mercados y cadenas locales, no solo negocios individuales.</li>
@@ -1076,6 +1110,21 @@
     <figcaption><b>Fuente:</b> Encuesta de percepción de afectaciones, agosto de 2026 · Cálculos de la Unidad de Analítica de la Fundación WWB Colombia.</figcaption>
   </figure>
 
+  <div class="col">
+    <p>Afectaciones estructurales en el negocio:</p>
+
+    <div class="verbatim-blocks reveal">
+      <div class="verbatim-card">
+        <p class="quote">“Físicamente estamos bien pero nos quedamos sin casa, sin cosas, estamos quedándonos donde una amiga, perdí insumos, inventario y herramientas de trabajo, ahora mismo estoy sin casa empezando por ahí y yo operaba desde mi hogar así que todo está afectado”</p>
+        <p class="author">Emprendedora de Cali <span>Yarú Semipresencial</span></p>
+      </div>
+      <div class="verbatim-card">
+        <p class="quote">“En el punto donde realizo producción y venta colapsaron algunas vigas y parte del techo se vino abajo con su estructura. El sitio permanece cerrado por seguridad y no se puede habitar afectando directamente la producción y las ventas de mi negocio”</p>
+        <p class="author">Emprendedor de Cali <span>Yarú Semipresencial</span></p>
+      </div>
+    </div>
+  </div>
+
   <div class="takeaway reveal">
     <span class="takeaway-tag">En síntesis</span>
     <p>Reponer infraestructura, por sí solo, no reactivará estos negocios, aunque hubo daños materiales, las principales afectaciones están en la demanda, clientes, flujo de caja, capital para trabajar. El resto del informe sigue el rastro de esa parálisis hasta dentro de cada hogar.</p>
@@ -1245,6 +1294,26 @@
     </div>
     <figcaption><b>Fuente:</b> Encuesta de percepción de afectaciones, agosto de 2026 · Cálculos de la Unidad de Analítica de la Fundación WWB Colombia.</figcaption>
   </figure>
+
+  <div class="col">
+    <p>Afectaciones estructurales del hogar:</p>
+
+    <div class="verbatim-blocks reveal">
+      <div class="verbatim-card">
+        <p class="quote">“Lamentablemente fue muy fuerte porque tuvimos que desalojar la casa y por el momento todo está donde un vecino guardado y nosotros viviendo donde un familiar esperando que pase todo, no pensábamos que fuera a pasar algo así que nos perjudicara tanto”</p>
+        <p class="author">Emprendedora de Buenaventura <span>Yarú Semipresencial</span></p>
+      </div>
+      <div class="verbatim-card">
+        <p class="quote">“En mi casa se separaron un poco algunas paredes de la columna, ladrillos flojos, algunas paredes flojas, caída del cemento de una parte de una columna, quiebre de un vidrio, se movió el techo, se corrieron las tejas dejando un espacio entre las paredes”</p>
+        <p class="author">Emprendedora de Cali <span>Yarú Semipresencial</span></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="takeaway reveal">
+    <span class="takeaway-tag">En síntesis</span>
+    <p>El daño estructural no distingue entre casa y negocio: cuando la vivienda se resiente, el taller, la bodega o el punto de venta se resienten con ella. Reparar el hogar es, para buena parte de estas emprendedoras, la condición previa para reabrir el negocio.</p>
+  </div>
 
   <div class="col">
     <p class="lede-question">Si el negocio no vende y el negocio es el ingreso, ¿de qué vive la casa?</p>
@@ -1652,7 +1721,23 @@
       <li><b>81,4%</b> de las personas encuestadas se declara un poco alterada o muy afectada emocionalmente.</li>
     </ul>
     <p>La jerarquía de necesidades ofrece una guía clara para la respuesta de la Fundación: priorizar el capital para la reactivación, integrar el acompañamiento psicosocial como parte de esa reactivación y no como un anexo, articular la reparación de la vivienda con la del negocio, y activar una ruta inmediata para los casos críticos.</p>
-    <p class="closing">Reparar lo que el sismo dañó no basta. El reto es evitar que un choque como este devuelva a las emprendedoras al punto de partida del que venían saliendo.</p>
+  </div>
+
+  <!-- Nota sobre riesgo climático -->
+  <div class="method reveal">
+    <div class="method-inner">
+      <p class="method-title">Una ventana de reconstrucción que coincide con un nuevo riesgo climático</p>
+      <p>La fase de reactivación y recuperación que este informe recomienda no ocurre en un escenario neutro. El IDEAM advierte que el fenómeno de El Niño, ya en curso, tiene una probabilidad superior al 90% de persistir hasta el primer trimestre de 2027 y un 69% de probabilidad de alcanzar su intensidad más fuerte entre octubre y diciembre de 2026, justo el periodo en el que se concentrarían los esfuerzos de reactivación de los negocios afectados por el sismo.</p>
+      <p>Para el Valle del Cauca, donde se ubica el 76,1% de las beneficiarias encuestadas, el riesgo es una presión que las autoridades y los operadores de servicios públicos ya están gestionando. En Cali, que concentra el 37,1% de las respuestas, Emcali activó de manera anticipada su Plan de Contingencia por Estiaje para el suministro de agua y reforzó el monitoreo de sus subestaciones eléctricas ante un incremento en el consumo de energía. En el resto del departamento, Acuavalle pidió a más de 255.000 suscriptores en 33 municipios adoptar medidas urgentes de ahorro. En Buenaventura, segundo municipio con más respuestas (9,4%), el riesgo ya se materializó, se ha encontrado que el descenso del río Escalerete obligó a suspender temporalmente el suministro de agua en varios barrios. A esto se suma la advertencia departamental sobre la agricultura, la ganadería y la caña de azúcar, sectores donde ya se habían reportado afectaciones en municipios como Andalucía, Jamundí, Bolívar y Pradera.</p>
+      <p>Esto es relevante porque el propio diagnóstico de esta encuesta ya identificó a la ruralidad como una fuente adicional de vulnerabilidad para las emprendedoras agropecuarias. Reconstruir sin considerar este riesgo expondría a la población beneficiaria a un segundo choque, esta vez anticipable, sobre una base que el sismo ya dejó debilitada.</p>
+      <p>Por eso, la recuperación debería incorporar, de manera transversal a los cinco ejes propuestos, criterios de resiliencia hídrica y climática por un lado priorizar en la reconstrucción de vivienda y negocio soluciones de almacenamiento y uso eficiente del agua, anticipar apoyos específicos para emprendedoras rurales y agropecuarias ante el estrés hídrico proyectado, y por otro lado, coordinar con los operadores y autoridades locales, Emcali en Cali, Acuavalle en el resto del departamento, el monitoreo de los municipios donde coinciden la afectación por el sismo y el riesgo climático de El Niño. Building back better, en este contexto, significa también reconstruir para el próximo semestre seco, no solo para el próximo sismo.</p>
+    </div>
+  </div>
+
+  <div class="closing-panel reveal">
+    <div class="cp-tick"></div>
+    <p class="cp-line1">Reparar lo que el sismo dañó no basta.</p>
+    <p class="cp-line2">El reto es evitar que un choque como este devuelva a las emprendedoras al punto de partida del que venían saliendo.</p>
   </div>
 </div>
 </article>
@@ -1661,11 +1746,33 @@
   <div class="wrap">
     <div class="src">
       <b>Fuente de los datos:</b> Encuesta de percepción de afectaciones, agosto de 2026. Cálculos y análisis de la Unidad de Analítica de la Fundación WWB Colombia.<br>
-  
+
       <a href="https://www.fundacionwwbcolombia.org">www.fundacionwwbcolombia.org</a>
     </div>
+    <button type="button" class="biblio-btn" onclick="document.getElementById('biblio-modal').showModal()">Ver bibliografía</button>
   </div>
 </footer>
+
+<dialog id="biblio-modal" class="biblio-modal">
+  <div class="biblio-modal-inner">
+    <div class="biblio-head">
+      <p class="biblio-title">Bibliografía</p>
+      <button type="button" class="biblio-close" aria-label="Cerrar" onclick="document.getElementById('biblio-modal').close()">✕</button>
+    </div>
+    <div class="biblio-tick"></div>
+    <ul class="biblio-list">
+      <li>Ali, R. A., &amp; Mannakkara, S. (2024). Phased post-disaster recovery challenges: 2016–2017 floods and landslides in Colombo and Kalutara, Sri Lanka. <i>International Journal of Disaster Risk Reduction, 111.</i> <a href="https://doi.org/10.1016/j.ijdrr.2024.104728" target="_blank" rel="noopener">https://doi.org/10.1016/j.ijdrr.2024.104728</a></li>
+      <li>CEPAL. (1999). <i>El terremoto de enero de 1999 en Colombia: Impacto socioeconómico del desastre en la zona del Eje Cafetero.</i> Recuperado el 20 de agosto de 2026 de <a href="https://repositorio.cepal.org/server/api/core/bitstreams/60048abe-4fb6-4887-801c-ed6c544e5cbf/content" target="_blank" rel="noopener">repositorio.cepal.org</a></li>
+      <li>CESVI. (2026). <i>Colombia Emergency Response, Situation Report #1 (10–17 August 2026).</i> Recuperado el 20 de agosto de 2026 de <a href="https://reliefweb.int/report/colombia/colombia-emergency-response-situation-report-1-10-17-august-2026" target="_blank" rel="noopener">reliefweb.int</a></li>
+      <li>International Labour Organization, &amp; United Nations Development Programme. (2021). <i>Employment, livelihoods and social protection: Guide for recovery implementation.</i> International Labour Organization. Recuperado el 20 de agosto de 2026 de <a href="https://www.ilo.org/publications/employment-livelihoods-and-social-protection-guide-recovery-implementation" target="_blank" rel="noopener">ilo.org</a></li>
+      <li>UNGRD [@ungrd]. (2026, 20 de agosto). Balance de afectaciones por el sismo de 7,4 Mw en San José del Palmar, Chocó. <i>X.</i> Recuperado el 20 de agosto de 2026 de <a href="https://x.com/ungrd/status/2090419183225852369" target="_blank" rel="noopener">x.com/ungrd</a></li>
+      <li>UNGRD. (2024). <i>Lecciones aprendidas de recuperación posdesastre.</i> Recuperado el 20 de agosto de 2026 de <a href="http://repositorio.gestiondelriesgo.gov.co/handle/20.500.11762/40732" target="_blank" rel="noopener">repositorio.gestiondelriesgo.gov.co</a></li>
+      <li>European Union, United Nations &amp; World Bank. (2017a). <i>PDNA guidelines volume B: Employment, livelihood &amp; social protection.</i> Recuperado el 20 de agosto de 2026 de <a href="https://reliefweb.int/report/world/pdna-guidelines-volume-b-employment-livelihood-social-protection" target="_blank" rel="noopener">reliefweb.int</a></li>
+      <li>European Union, United Nations &amp; World Bank. (2017b). <i>PDNA guidelines volume B: Gender.</i> Recuperado el 20 de agosto de 2026 de <a href="https://wrd.unwomen.org/index.php/practice/resources/post-disaster-needs-assessment-pdna-guidelines-volume-b-gender" target="_blank" rel="noopener">wrd.unwomen.org</a></li>
+      <li>European Union, United Nations &amp; World Bank. (2017c). <i>PDNA guidelines volume B: Commerce.</i> Recuperado el 20 de agosto de 2026 de <a href="https://www.preventionweb.net/publication/documents-and-publications/post-disaster-needs-assessments-guidelines-volume-b-commerce" target="_blank" rel="noopener">preventionweb.net</a></li>
+    </ul>
+  </div>
+</dialog>
 
 <script>
   var bar = document.getElementById('progress');
@@ -1675,8 +1782,16 @@
     var p = max > 0 ? (h.scrollTop || document.body.scrollTop) / max : 0; 
     bar.style.width = (p * 100) + '%'; 
   }
-  document.addEventListener('scroll', onScroll, {passive: true}); 
+  document.addEventListener('scroll', onScroll, {passive: true});
   onScroll();
+
+  /* ---------- Modal de bibliografía: cerrar al hacer clic en el fondo ---------- */
+  var biblioModal = document.getElementById('biblio-modal');
+  if (biblioModal) {
+    biblioModal.addEventListener('click', function(e){
+      if (e.target === biblioModal) biblioModal.close();
+    });
+  }
 
   /* Función de conteo actualizada para detectar data-int (números enteros con punto separador de miles) */
   function animateValue(obj, start, end, duration) {

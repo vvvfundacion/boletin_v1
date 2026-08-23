@@ -659,6 +659,12 @@
     .takeaway-tag { display: inline-block; margin-bottom: 10px; }
     .method-inner { padding: 24px 22px; }
   }
+  @media (max-width: 820px) {
+    .takeaway { margin-left: 22px; margin-right: 22px; }
+  }
+  @media (max-width: 480px) {
+    .takeaway { margin-left: 18px; margin-right: 18px; }
+  }
 
 
   /* ---------- figura pareada: el texto y el gráfico van juntos ---------- */
@@ -710,6 +716,25 @@
     .fig-split { grid-template-columns: 1fr; gap: 24px; }
     .fig-split .fig-title, .fig-split .fig-sub { text-align: left; }
     .impact-panel.two-col { grid-template-columns: 1fr; }
+  }
+
+  /* Estas van después de las reglas de arriba (misma o mayor especificidad)
+     para que el margen/padding de móvil no quede anulado por ellas. */
+  @media (max-width: 820px) {
+    .fig-split.fig-split-stack { padding-left: 22px; padding-right: 22px; }
+    /* Solo afecta al .stacked-chart-wrapper "suelto" (fuera de .fig-split):
+       ahí .width:100% deja el margen auto sin espacio para centrar. Dentro
+       de .fig-split, la regla ".fig-split .stacked-chart-wrapper" (más
+       específica) sigue ganando y mantiene su margin:0, que es lo correcto. */
+    .stacked-chart-wrapper { width: auto; margin-left: 22px; margin-right: 22px; }
+  }
+  @media (max-width: 600px) {
+    .impact-panel.two-col { margin: 44px 22px; }
+  }
+  @media (max-width: 480px) {
+    .fig-split.fig-split-stack { padding-left: 18px; padding-right: 18px; }
+    .impact-panel.two-col { margin: 44px 18px; }
+    .stacked-chart-wrapper { margin-left: 18px; margin-right: 18px; }
   }
 
 

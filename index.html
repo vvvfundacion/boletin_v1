@@ -4,9 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Radiografía de la emergencia — Fundación WWB Colombia</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,400..800&family=Libre+Franklin:ital,wght@0,300..800;1,400..600&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap" rel="stylesheet">
 <style>
   :root {
     --azul: #223581; --azul-2: #192962; --lavanda: #869EE5;
@@ -14,9 +11,9 @@
     --tinta: #1D1D1B; --gris: #6B6B6B;
     --linea: rgba(29,29,27,.13);
     --linea-fuerte: rgba(29,29,27,.22);
-    --serif: "Newsreader", Georgia, serif;
-    --display: "Fraunces", Georgia, serif;
-    --sans: "Libre Franklin", -apple-system, Segoe UI, sans-serif;
+    --serif: "Trebuchet MS", "Lucida Grande", Georgia, serif;
+    --display: "Trebuchet MS", "Lucida Grande", Georgia, serif;
+    --sans: "Trebuchet MS", "Lucida Grande", -apple-system, Segoe UI, sans-serif;
     --col: 41rem;   /* columna de lectura */
     --wide: 62rem;  /* elementos anchos */
   }
@@ -49,7 +46,7 @@
     font-family: var(--display); font-optical-sizing: auto;
     font-weight: 600; font-size: clamp(2.5rem, 6.2vw, 4.65rem);
     line-height: 1.02; letter-spacing: -.018em; margin: 0 auto; max-width: 16ch;
-    color: var(--tinta);
+    color: var(--azul);
   }
   .subhead {
     font-family: var(--display); font-weight: 400; font-size: clamp(1.35rem, 2.9vw, 1.95rem);
@@ -60,20 +57,20 @@
   .dek { font-family: var(--display); font-weight: 400; font-style: italic; font-size: clamp(1.05rem, 2.1vw, 1.35rem); line-height: 1.42; color: var(--gris); max-width: 40ch; margin: 20px auto 0; }
   .meta { font-family: var(--sans); font-size: 13px; letter-spacing: .04em; color: var(--gris); margin-top: 30px; display: flex; flex-wrap: wrap; row-gap: 8px; align-items: center; gap: 10px; }
   .meta span:not(.dot) { white-space: nowrap; }
-  .meta-logo { height: 50px; width: auto; display: block; }
+  .meta-logo { height: 70px; width: auto; display: block; }
   .meta .dot { color: var(--linea-fuerte); }
 
   /* ---------- cabecera partida a todo el ancho ---------- */
   .hero-split {
-    display: grid; grid-template-columns: 1.2fr 1fr; align-items: stretch;
+    display: grid; grid-template-columns: 1fr 1.3fr; align-items: stretch;
     gap: 0; width: 100%; padding: 44px 0 20px;
   }
   .hero-split-text {
     text-align: left; padding-left: clamp(28px, 6vw, 96px); padding-right: clamp(20px, 4vw, 48px);
-    display: flex; flex-direction: column; justify-content: space-between;
+    display: flex; flex-direction: column; justify-content: center; gap: clamp(36px, 7vh, 70px);
   }
   .hst-top { flex: 0 0 auto; }
-  .hst-main { flex: 0 0 auto; margin: 40px 0; }
+  .hst-main { flex: 0 0 auto; }
   .hero-split-text .kicker-rule { margin: 20px 0 30px; }
   .hero-split-text h1.headline { margin: 0; max-width: none; }
   .hero-split-text .dek { margin: 24px 0 0; max-width: 42ch; }
@@ -92,7 +89,7 @@
   .hero .cell { padding: 40px 24px; position: relative; }
   .hero .cell + .cell { border-left: 1px solid rgba(34,53,129,.16); }
   .hero .num { font-family: var(--display); font-weight: 600; font-size: clamp(2.4rem, 4.5vw, 3.6rem); line-height: .95; color: var(--azul); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
-  .hero .num .amp { color: var(--amarillo); }
+  .hero .num .amp { color: var(--azul); }
   .hero .lab { font-family: var(--sans); font-size: 13.5px; line-height: 1.45; color: var(--tinta); margin-top: 14px; max-width: 22ch; }
   .hero .tick { width: 30px; height: 4px; background: var(--amarillo); margin-bottom: 20px; }
 
@@ -170,7 +167,7 @@
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  .exec-summary p { margin-bottom: 1.2em; }
+  .exec-summary p { margin-bottom: 1.2em; color: #404040; }
   .exec-summary h3 {
     font-family: var(--sans);
     font-size: 13px;
@@ -229,7 +226,7 @@
   .chapter.habitability > .col:nth-of-type(2) { border-top: 0; padding-top: 0; }
   .eyebrow { font-family: var(--sans); font-weight: 700; letter-spacing: .2em; text-transform: uppercase; font-size: 12px; color: var(--azul); display: flex; align-items: center; gap: 11px; margin: 0 0 20px; }
   .eyebrow::before { content: ""; width: 22px; height: 4px; background: var(--amarillo); display: inline-block; }
-  h2.chapter-title { font-family: var(--display); font-weight: 600; font-size: clamp(1.75rem, 3.8vw, 2.6rem); line-height: 1.1; letter-spacing: -.015em; margin: 0 0 18px; color: var(--tinta); }
+  h2.chapter-title { font-family: var(--display); font-weight: 600; font-size: clamp(1.75rem, 3.8vw, 2.6rem); line-height: 1.1; letter-spacing: -.015em; margin: 0 0 18px; color: var(--azul); }
   .chapter-sub { font-family: var(--sans); font-weight: 500; font-size: 16px; color: var(--gris); margin: 14px 0 30px; }
   .chapter > .col > p:first-of-type,
   .chapter > .col > .chapter-title + p { margin-top: 0; }
@@ -284,7 +281,7 @@
   /* ---------- figuras / gráficas ---------- */
   figure.fig { margin: 36px auto; max-width: var(--wide); }
   figure.fig .fig-head { max-width: 52rem; margin-inline: auto; }
-  .fig-title { font-family: var(--display); font-weight: 600; font-size: clamp(1.25rem, 2.6vw, 1.7rem); line-height: 1.18; letter-spacing: -.01em; color: var(--tinta); margin: 0; text-align: center; }
+  .fig-title { font-family: var(--display); font-weight: 600; font-size: clamp(1.25rem, 2.6vw, 1.7rem); line-height: 1.18; letter-spacing: -.01em; color: var(--azul); margin: 0; text-align: center; }
   .fig-sub { font-family: var(--sans); font-size: 14px; color: var(--gris); margin: 8px 0 22px; letter-spacing: .01em; text-align: center; }
 
   /* ---------- Gráfico de Dona Mejorado (SVG) ---------- */
@@ -319,7 +316,7 @@
 
   /* ---------- Widget radial (gauge de servicios públicos) ---------- */
   .radial-widget { max-width: 640px; margin: 0 auto 16px; width: 100%; padding: 40px 30px 34px; background: #fff; border: 1px solid var(--linea-fuerte); border-radius: 12px; display: flex; flex-direction: column; align-items: center; gap: 32px; box-shadow: 0 10px 30px rgba(34,53,129,.04); }
-  .rw-figtitle { font-family: var(--display); font-weight: 600; font-size: clamp(1.25rem, 2.6vw, 1.7rem); line-height: 1.18; letter-spacing: -.01em; color: var(--tinta); margin: 0 0 20px; text-align: center; }
+  .rw-figtitle { font-family: var(--display); font-weight: 600; font-size: clamp(1.25rem, 2.6vw, 1.7rem); line-height: 1.18; letter-spacing: -.01em; color: var(--azul); margin: 0 0 20px; text-align: center; }
   .rw-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
   .rw-btn { font-family: var(--sans); font-size: 13.5px; font-weight: 600; letter-spacing: .01em; padding: 8px 18px; border-radius: 20px; border: 1px solid var(--linea-fuerte); background: var(--hueso); color: var(--tinta); cursor: pointer; transition: background .25s ease, color .25s ease, border-color .25s ease; }
   .rw-btn:hover { border-color: var(--azul); color: var(--azul); }
@@ -438,6 +435,7 @@
   .food-item .v-group { display: flex; flex-direction: column; align-items: flex-start; min-width: 110px; }
   .food-item .v { font-family: var(--display); font-weight: 600; font-size: 2.5rem; color: var(--azul); line-height: 1; }
   .food-item .line { width: 28px; height: 3px; background: var(--amarillo); margin-top: 8px; }
+  .food-item .t b { color: var(--azul); }
   .food-item .t { font-family: var(--sans); font-size: 13.5px; line-height: 1.45; color: var(--tinta); }
   .food-list.in .food-item { opacity: 1; transform: translateY(0); }
   .food-list.in .food-item:nth-child(1) { transition-delay: .1s; }
@@ -457,8 +455,8 @@
   .closing-panel::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 5px; background: var(--amarillo); }
   .closing-panel .cp-tick { width: 40px; height: 4px; background: var(--amarillo); margin: 0 auto 26px; }
   .closing-panel p { font-family: var(--display); font-style: italic; line-height: 1.4; margin: 0; letter-spacing: -.01em; }
-  .closing-panel .cp-line1 { font-size: clamp(1.15rem, 2.2vw, 1.4rem); font-weight: 500; color: var(--lavanda); margin-bottom: 16px; }
-  .closing-panel .cp-line2 { font-size: clamp(1.5rem, 3.2vw, 2.05rem); font-weight: 600; color: #fff; }
+  .closing-panel .cp-line1 { font-size: clamp(1.15rem, 2.2vw, 1.4rem); font-weight: 500; color: var(--lavanda); margin-bottom: 16px; font-style: normal; }
+  .closing-panel .cp-line2 { font-size: clamp(1.5rem, 3.2vw, 2.05rem); font-weight: 600; color: #fff; font-style: normal; }
 
   /* ---------- pie ---------- */
   footer { background: var(--azul); color: rgba(250,250,250,.86); margin-top: 80px; padding: 52px 0 46px; }
@@ -641,6 +639,7 @@
   .method { max-width: calc(var(--col) + 4rem); margin: 44px auto; padding: 0 28px; }
   .method-inner { background: var(--beige); border-left: 5px solid var(--azul); border-radius: 0 10px 10px 0; padding: 30px 34px; }
   .method-title { font-family: var(--sans); font-weight: 700; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--azul); margin: 0 0 16px; }
+  .method-inner p.method-title { color: var(--azul); }
   .method-inner p { font-family: var(--serif); font-size: 17.5px; line-height: 1.62; color: var(--tinta); margin: 0 0 1em; }
   .method-inner p:last-child { margin-bottom: 0; }
   .method-inner strong { color: var(--azul-2); font-weight: 700; }
@@ -761,7 +760,7 @@
     background: var(--azul); color: #fff; font-family: var(--sans); font-weight: 700; font-size: 14px;
     display: flex; align-items: center; justify-content: center;
   }
-  .reco-title { font-family: var(--display); font-size: 1.25rem; font-weight: 600; color: var(--tinta); margin: 0; line-height: 1.22; }
+  .reco-title { font-family: var(--display); font-size: 1.25rem; font-weight: 600; color: var(--azul); margin: 0; line-height: 1.22; }
   .reco-card p { font-family: var(--sans); font-size: 14.5px; line-height: 1.55; color: var(--tinta); margin: 0; }
   .reco-card p strong { color: var(--azul); font-weight: 700; }
   .reco-nav { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 22px; }
@@ -808,7 +807,7 @@
   .phase-step.p2 { border-top-color: var(--lavanda); }
   .phase-step.p3 { border-top-color: var(--azul); }
   .phase-plazo { font-family: var(--sans); font-weight: 700; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--gris); margin: 0 0 6px; }
-  .phase-title { font-family: var(--display); font-weight: 600; font-size: 1.15rem; color: var(--tinta); margin: 0 0 8px; }
+  .phase-title { font-family: var(--display); font-weight: 600; font-size: 1.15rem; color: var(--azul); margin: 0 0 8px; }
   .phase-step p.phase-desc { font-family: var(--sans); font-size: 14px; line-height: 1.5; color: var(--tinta); margin: 0; }
 
   @media (max-width: 720px) {
@@ -825,8 +824,9 @@
 <div class="hero-split">
   <div class="hero-split-text">
     <div class="hst-top">
-      <p class="kicker">Boletín informativo</p>
+      <p class="kicker">Boletín informativo No. 1</p>
       <p class="kicker-sub">Fundación WWB Colombia</p>
+      <p class="kicker-sub">Agosto de 2026</p>
       <hr class="kicker-rule">
     </div>
     <div class="hst-main">
@@ -835,14 +835,10 @@
     </div>
     <div class="meta">
       <img class="meta-logo" src="assets/WWB_Logotipo_Duotono.png" alt="Fundación WWB Colombia">
-      <span class="dot">·</span>
-      <span>Agosto de 2026</span>
-      <span class="dot">·</span>
-      <span>25 min de lectura</span>
     </div>
   </div>
   <div class="hero-split-img">
-     <img src="assets/imagen.jpg" alt="Vista aérea de Cali, Colombia">
+     <img src="assets/imagen4.png" alt="Vista aérea de Cali, Colombia">
   </div>
 </div>
     
@@ -850,7 +846,7 @@
   <div class="grid">
     <div class="cell"><div class="tick"></div>
       <div class="num"><span class="counter" data-target="3906" data-int>0</span></div>
-      <div class="lab">beneficiarias encuestadas: 86,7% mujeres y 13,2% hombres</div></div>
+      <div class="lab">Personas beneficiarias encuestadas: 86,7% mujeres y 13,2% hombres</div></div>
     <div class="cell"><div class="tick"></div>
       <div class="num"><span class="counter" data-target="76.2">0,0</span><span class="amp">%</span></div>
       <div class="lab">de los negocios no operaba con normalidad al momento de responder la encuesta</div></div>
@@ -880,7 +876,7 @@
 
         <p>Sin embargo, conviene aclarar que esta encuesta no constituye un ejercicio de muestreo probabilístico ni representativo del universo de beneficiarias, sino que corresponde a análisis descriptivos sobre los registros admnistrativos recolectados por la Fundación entre quienes respondieron. Los registros administrativos de la Fundación contemplan un 80% por mujeres beneficiarias. Estos resultados se comparten como orientación y base para enriquecer el análisis y no pretenden ser una conclusión extrapolable per se del universo, pero muestran indicios que consideramos importantes a la hora de determinar cursos de acción.</p>
 
-              <p><strong>El hallazgo principal:</strong> El 76,2% de los negocios no está operando con normalidad. La parálisis vino de la contracción de la demanda sobre unidades de subsistencia que en su mayoría funcionan dentro de la vivienda.</p>
+              <p><strong style="color: var(--azul);">El hallazgo principal:</strong> El 76,2% de los negocios no está operando con normalidad. La parálisis vino de la contracción de la demanda sobre unidades de subsistencia que en su mayoría funcionan dentro de la vivienda.</p>
 
       <h3>Impacto en los negocios</h3>
       <ul class="summary">
@@ -932,7 +928,7 @@
       <ul class="toc-list">
         <li><a href="#vivienda">El lugar de trabajo</a></li>
         <li><a href="#hogar">El presupuesto del hogar</a></li>
-        <li><a href="#personas">Quien lo sostiene</a></li>
+        <li><a href="#personas">Quién lo sostiene</a></li>
       </ul>
     </div>
     <div class="toc-group">
@@ -1562,7 +1558,7 @@
 
   <figure class="fig reveal">
     <div class="fig-head col" style="margin-inline:auto">
-      <h3 class="fig-title">Nube de palabras de frecuencia de códigos</h3>
+      <h3 class="fig-title">Nube de palabras reiterativas en el discurso</h3>
       <p class="fig-sub">Códigos más recurrentes en los 857 testimonios codificados</p>
     </div>
 

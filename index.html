@@ -1808,14 +1808,27 @@
 </dialog>
 
 <script>
-  /* ---------- contador de visitas (Google Sheets vía Apps Script) ---------- */
-  var URL_CONTADOR = 'https://script.google.com/a/macros/fundacionwwbcol.org/s/AKfycbwxRsF6RCg71UE9PjmHvvJFm4I0qVjgQOLGw7kD28xlHzKJ_e7Rhvyv2gY958nvhKrU/exec';
+  /* ---------- contador de visitas y lectura (Google Sheets vía Apps Script) ---------- */
+  var URL_CONTADOR = 'https://script.google.com/macros/s/AKfycbwxRsF6RCg71UE9PjmHvvJFm4I0qVjgQOLGw7kD28xlHzKJ_e7Rhvyv2gY958nvhKrU/exec';
 
+  var visitorId = (function () {
+    try {
+      var id = localStorage.getItem('wwb_visitor_id');
+      if (!id) {
+        id = 'v-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 10);
+        localStorage.setItem('wwb_visitor_id', id);
+      }
+      return id;
+    } catch (err) { return 'sin-id'; }
+  })();
+
+  var maxScroll = 0;
   var engagementSent = false;
 
-  function ping(tipo) {
+  function ping(tipo, extra) {
     try {
-      var data = { tipo: tipo, r: document.referrer || '(directo)', u: navigator.userAgent };
+      var data = { tipo: tipo, id: visitorId, r: document.referrer || '(directo)', u: navigator.userAgent };
+      for (var k in extra) data[k] = extra[k];
       new Image().src = URL_CONTADOR + '?' + new URLSearchParams(data).toString();
     } catch (err) { /* si falla, no interrumpe la carga de la página */ }
   }
@@ -1825,7 +1838,7 @@
   function sendEngagement() {
     if (engagementSent) return;
     engagementSent = true;
-    ping('engagement');
+    ping('engagement', { pct: Math.round(maxScroll * 100) });
   }
   document.addEventListener('visibilitychange', function () {
     if (document.visibilityState === 'hidden') sendEngagement();
@@ -1838,6 +1851,7 @@
     var max = h.scrollHeight - h.clientHeight;
     var p = max > 0 ? (h.scrollTop || document.body.scrollTop) / max : 0;
     bar.style.width = (p * 100) + '%';
+    if (p > maxScroll) maxScroll = p;
   }
   document.addEventListener('scroll', onScroll, {passive: true});
   onScroll();

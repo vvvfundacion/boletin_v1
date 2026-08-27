@@ -969,7 +969,7 @@
     <h2 class="chapter-title intro-title" id="contexto">¿Qué ocurrió el 10 de agosto?</h2>
     <p class="lede-first">La emergencia que se desencadenó el 10 de agosto de 2026 en el suroccidente colombiano, a raíz de un sismo de magnitud 7.4, es una de las más graves que ha enfrentado la región en años recientes. Los daños en infraestructura y las interrupciones operativas provocaron desplazamientos temporales y pérdidas humanas y materiales devastadoras, y levantaron serias barreras para el comercio local. Por eso la vulnerabilidad económica se agudizó y los medios de vida se deterioraron.</p>
     <p>Los daños se concentraron en mayor medida en Cali, Pereira, Manizales, Quibdó, Buenaventura y otros municipios del Valle del Cauca, Cauca, Risaralda y Chocó, área que coincide con la zona de operación histórica de la Fundación WWB Colombia. Según el balance oficial de la UNGRD con corte al 20 de agosto de 2026, la cifra de personas afectadas por el sismo asciende a 282.709 correspondientes a 153.336 familias. En cuanto al impacto humano, el reporte registra 319 personas fallecidas, 4.506 heridas y 260 desaparecidas. Además, se reportan 31.461 viviendas destruidas, 163.492 averiadas y 302 edificios colapsados.</p>
-    <p>A esas afectaciones se suma el golpe sobre el tejido productivo de la región, de base predominantemente microempresarial. Las regiones golpeadas concentraban, antes del evento, 269.786 empresas y 1.396.020 empleos formales (15% del empleo formal nacional), y el 93 % de esas empresas (250.628) son microempresas, el segmento con menor capacidad para absorber pérdidas, sostener el empleo y reactivar operaciones.</p>
+    <p>A esas afectaciones se suma el golpe sobre el tejido productivo de la región, de base predominantemente microempresarial. Las regiones golpeadas concentraban, antes del evento, 269.786 empresas y 1.396.020 empleos formales (15% del empleo formal nacional), y el 93% de esas empresas (250.628) son microempresas, el segmento con menor capacidad para absorber pérdidas, sostener el empleo y reactivar operaciones.</p>
   <p>Los primeros resultados del Censo Único de Emergencia, levantado por Confecámaras a partir de una solución de la Cámara de Comercio de Cali, confirman la gravedad. El 85,8% de las empresas encuestadas reportó alguna afectación, el 49,6% de nivel grave o crítico y el 48,4% no puede operar actualmente. Según Forbes (2026), en el plano macroeconómico, una primera estimación de BTG Pactual calcula que la reconstrucción podría superar los 20 billones de pesos (cerca de 1 p.p. del PIB) en un contexto de restricción fiscal que condiciona el alcance y la velocidad de la respuesta pública.
 </p>
   <p>La magnitud de la emergencia desbordó la capacidad de respuesta inmediata de múltiples instituciones y comunidades, con impactos particularmente severos sobre el tejido microempresarial de la región. Para orientar su respuesta, la Fundación WWB Colombia aplicó una encuesta de percepción de afectaciones a la que respondieron 3.906 beneficiarias de los programas Yarú (Virtual, Semipresencial y Rural), Reactívate, Voy de la Mano, 60D y Red de Egresadas, indagando por su salud física y emocional, el estado de su vivienda, el acceso a servicios básicos, la seguridad alimentaria, las condiciones de alojamiento, la situación de su negocio y sus principales necesidades de recuperación.
@@ -1808,6 +1808,18 @@
 </dialog>
 
 <script>
+  /* ---------- contador de visitas (Google Sheets vía Apps Script) ---------- */
+  (function () {
+    var URL_CONTADOR = 'https://script.google.com/a/macros/fundacionwwbcol.org/s/AKfycbyhhCmpb2zTrvb0_4zzbGoDJrSZ94_xRn52qYgEePuoHLqu9ijOo5f0DShKc21aT0Nc/exec';
+    try {
+      var params = new URLSearchParams({
+        r: document.referrer || '(directo)',
+        u: navigator.userAgent
+      });
+      new Image().src = URL_CONTADOR + '?' + params.toString();
+    } catch (err) { /* si falla, no interrumpe la carga de la página */ }
+  })();
+
   var bar = document.getElementById('progress');
   function onScroll() { 
     var h = document.documentElement; 

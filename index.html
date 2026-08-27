@@ -1822,12 +1822,13 @@
     } catch (err) { return 'sin-id'; }
   })();
 
+  var sessionId = Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 8);
   var maxScroll = 0;
   var engagementSent = false;
 
   function ping(tipo, extra) {
     try {
-      var data = { tipo: tipo, id: visitorId, r: document.referrer || '(directo)', u: navigator.userAgent };
+      var data = { tipo: tipo, id: visitorId, s: sessionId, r: document.referrer || '(directo)', u: navigator.userAgent };
       for (var k in extra) data[k] = extra[k];
       new Image().src = URL_CONTADOR + '?' + new URLSearchParams(data).toString();
     } catch (err) { /* si falla, no interrumpe la carga de la página */ }

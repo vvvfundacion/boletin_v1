@@ -1822,9 +1822,18 @@
     } catch (err) { return 'sin-id'; }
   })();
 
-  var sessionId = Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 8);
+  var sessionId = (function () {
+    try {
+      var s = sessionStorage.getItem('wwb_session_id');
+      if (!s) {
+        s = Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 8);
+        sessionStorage.setItem('wwb_session_id', s);
+      }
+      return s;
+    } catch (err) { return Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 8); }
+  })();
+
   var maxScroll = 0;
-  var engagementSent = false;
 
   function ping(tipo, extra) {
     try {
@@ -1837,8 +1846,6 @@
   ping('visita');
 
   function sendEngagement() {
-    if (engagementSent) return;
-    engagementSent = true;
     ping('engagement', { pct: Math.round(maxScroll * 100) });
   }
   document.addEventListener('visibilitychange', function () {
